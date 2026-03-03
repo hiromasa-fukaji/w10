@@ -13,6 +13,12 @@ function draw() {
     // 非常に暗い、少し青みがかった背景
     background(5, 10, 20, 180);
 
+    fill("#ffff00");
+    noStroke();
+    textAlign(LEFT, TOP);
+    textSize(12);
+    text('p5.jsで記述して。キャンバス上に大雨を降らして。', 5, 5);
+
     // 雨粒の描画
     for (let drop of drops) {
         drop.fall();
@@ -31,6 +37,12 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+}
+
+function keyPressed() {
+    if (key === 's' || key === 'S') {
+        saveCanvas('heavy_rain', 'png');
+    }
 }
 
 class Drop {

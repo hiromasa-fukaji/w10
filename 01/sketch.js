@@ -20,6 +20,12 @@ function draw() {
     // Beautiful sky gradient
     drawSky();
 
+    fill("#ffff00");
+    noStroke();
+    textAlign(LEFT, TOP);
+    textSize(12);
+    text('p5.jsで記述して。キャンバス上を覆う雲のようなオブジェクトをランダムに配置して。', 5, 5);
+
     // Update and show clouds
     for (let cloud of clouds) {
         cloud.update();
@@ -92,4 +98,10 @@ class Cloud {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+}
+
+function keyPressed() {
+    if (key === 's' || key === 'S') {
+        saveCanvas('ethereal_clouds', 'png');
+    }
 }

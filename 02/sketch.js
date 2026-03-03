@@ -12,6 +12,12 @@ function draw() {
     // Deep dark background with fade for "ghosting" effect
     background(5, 5, 20, 60);
 
+    fill("#ffff00");
+    noStroke();
+    textAlign(LEFT, TOP);
+    textSize(12);
+    text('p5.jsで記述して。キャンバス上に雷が断続的に落ちるようなアニメーションを実装して。', 5, 5);
+
     // Background flash effect when lightning hits
     if (flashOpacity > 0) {
         noStroke();
@@ -45,6 +51,12 @@ function triggerStrike() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+}
+
+function keyPressed() {
+    if (key === 's' || key === 'S') {
+        saveCanvas('lightning_storm', 'png');
+    }
 }
 
 class LightningBolt {
